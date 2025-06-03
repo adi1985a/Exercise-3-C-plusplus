@@ -1,5 +1,5 @@
-# 📏🇵🇱 Prostokąt (Rectangle) Class Demo: C++ OOP in Polish 🎨
-_A C++ console program demonstrating a `Prostokat` (Rectangle) class with multiple constructors, property management, and Polish language output, utilizing `setlocale` for character support._
+# 📏Rectangle Class Demo: C++ OOP 🎨
+_A C++ console program demonstrating a Rectangle class with multiple constructors, property management, and English language output, utilizing `setlocale` for character support._
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![C++](https://img.shields.io/badge/Language-C%2B%2B-blue.svg)](https://isocpp.org/)
@@ -7,7 +7,7 @@ _A C++ console program demonstrating a `Prostokat` (Rectangle) class with multip
 
 ## 📋 Table of Contents
 1.  [Overview](#-overview)
-2.  [Key Features of the `Prostokat` Class](#-key-features-of-the-prostokat-class)
+2.  [Key Features of the `Rectangle` Class](#-key-features-of-the-prostokat-class)
 3.  [Screenshots (Conceptual Output)](#-screenshots-conceptual-output)
 4.  [System Requirements](#-system-requirements)
 5.  [Installation and Setup](#️-installation-and-setup)
@@ -20,31 +20,32 @@ _A C++ console program demonstrating a `Prostokat` (Rectangle) class with multip
 
 ## 📄 Overview
 
-The **Prostokąt (Rectangle) Class Demo**, developed by Adrian Lesniak, is a C++ console application designed to illustrate fundamental object-oriented programming (OOP) concepts through the implementation of a `Prostokat` (Rectangle) class. This class manages properties of a rectangle, including its side lengths (`bokA`, `bokB`), its `kolor` (color as a string), and its calculated `pole` (area). The program showcases the use of default and overloaded constructors for flexible object initialization and a `pokaz()` (show) method to display the rectangle's details. A key aspect is its use of **Polish variable names and output text** (e.g., "Długości boków", "Kolor", "żółty"), with `setlocale(LC_ALL, "")` employed to ensure proper display of Polish characters on compatible systems. The `main` function demonstrates creating an array of `Prostokat` objects and displaying their properties.
+The **Rectangle Class Demo**, developed by Adrian Lesniak, is a C++ console application designed to illustrate fundamental object-oriented programming (OOP) concepts through the implementation of a `Prostokat` (Rectangle) class. This class manages properties of a rectangle, including its side lengths (`bokA`, `bokB`), its `kolor` (color as a string), and its calculated `pole` (area). The program showcases the use of default and overloaded constructors for flexible object initialization and a `pokaz()` (show) method to display the rectangle's details. A key aspect is its use of **English variable names and output text**. The `main` function demonstrates creating an array of `Rectangle` objects and displaying their properties.
 
 ## ✨ Key Features of the `Prostokat` Class
 
 *   📦 **Attributes (Private)**:
-    *   `bokA`, `bokB`: Integer values representing the lengths of the rectangle's sides (Polish: "bok" means side).
-    *   `kolor`: A `std::string` storing the color of the rectangle (e.g., "czarny", "niebieski", "żółty").
-    *   `pole`: A `float` storing the calculated surface area of the rectangle (Polish: "pole" means area).
+    *   `sideA`, `sideB`: Integer values representing the lengths of the rectangle's sides.
+    *   `color`: A `std::string` storing the color of the rectangle (e.g., "black", "blue", "yellow").
+    *   `area`: A `float` storing the calculated surface area of the rectangle.
 *   🛠️ **Constructors**:
-    *   **Default Constructor**: Initializes a rectangle with default values (e.g., sides 0, color "czarny" (black), area 0).
+    *   **Default Constructor**: Initializes a rectangle with default values (e.g., sides 0, color black, area 0).
     *   **Overloaded Constructor (Sides and Color)**: Initializes a rectangle with specified side lengths and color. Calculates area internally.
-    *   **Overloaded Constructor (Sides Only)**: Initializes a rectangle with specified side lengths and a default color (e.g., "żółty" (yellow)). Calculates area internally.
+    *   **Overloaded Constructor (Sides Only)**: Initializes a rectangle with specified side lengths and a default color (e.g., yellow). Calculates area internally.
 *   📊 **Methods**:
-    *   `pokaz()` (Show): A public method that prints the rectangle's side lengths, color, and calculated area to the console in a formatted way, using Polish text.
-    *   `obliczPole()` (Calculate Area): A private helper method that computes the area (`bokA * bokB`, cast to `float`) and stores it in the `pole` attribute. This is typically called by the constructors.
+    *   `Show()`: A public method that prints the rectangle's side lengths, color, and calculated area to the console in a formatted way, using english text.
+    *   `Calculate Area()` (Calculate Area): A private helper method that computes the area (`sideA * sideB`, cast to `float`) and stores it in the `area` attribute. This is typically called by the constructors.
 *   👨‍💻 **Demonstration in `main()`**:
-    *   Creates a fixed-size array (e.g., of four `Prostokat` objects).
+    *   Creates a fixed-size array (e.g., of four `Rectangle` objects).
     *   Initializes these objects using the various constructors.
-    *   Iterates through the array, calling the `pokaz()` method for each `Prostokat` object to display its properties in Polish.
-*   🇵🇱 **Polish Localization**:
-    *   Uses `setlocale(LC_ALL, "");` at the beginning of `main` to configure the C++ runtime library to use the system's native locale, which is crucial for correct input/output of Polish characters (like 'ł', 'ó', 'ż') on systems where the default "C" locale might not support them.
+    *   Iterates through the array, calling the `show()` method for each `Rectangle` object to display its properties in english.
 
 ## 🖼️ Screenshots (Conceptual Output)
 
-The program produces direct console output based on the `pokaz()` method.
+The program produces direct console output based on the `show()` method.
+<p align="center">
+  <img src="screenshots\Image9.jpg" width="700"/>
+</p>
 
 **Example Console Output (assuming Polish locale is active and terminal supports it):**
 ```text
@@ -121,18 +122,16 @@ Pole powierzchni: 64.00
 
 ## 📝 Technical Notes
 
-*   **Polish Language Implementation**: A key characteristic is the use of Polish for variable names within the class (e.g., `bokA`, `kolor`, `pole`) and for the text output in the `pokaz()` method.
-*   **`setlocale(LC_ALL, "")`**: This function call is crucial. It attempts to set the C++ locale to the user's default system locale. If the system locale is configured for Polish (e.g., with UTF-8 encoding), and the console/terminal supports it, Polish characters like 'ł', 'ó', 'ż', 'ć', 'ś', 'ń', 'ę', 'ą' should display correctly. If not, they might appear as incorrect symbols or question marks.
-*   **Encapsulation**: The `Prostokat` class demonstrates encapsulation effectively.
+*   **Encapsulation**: The `Rectangle` class demonstrates encapsulation effectively.
 *   **Constructors**: Multiple constructors provide flexibility in object creation.
-*   **Area Calculation**: The area (`pole`) is calculated as `bokA * bokB` and cast to `float`.
+*   **Area Calculation**: The area (`area`) is calculated as `sideA * sideB` and cast to `float`.
 *   **Fixed Demonstration**: The `main` function runs a predefined demonstration without user interaction.
 
 ## 🤝 Contributing
 
-Contributions to this **Prostokąt (Rectangle) Class Demo** are welcome, especially if they aim to:
+Contributions to this **Rectangle Class Demo** are welcome, especially if they aim to:
 
-*   Add more methods to the `Prostokat` class (e.g., `obliczObwod()` for perimeter).
+*   Add more methods to the `Rectangle` class (e.g., `obliczObwod()` for perimeter).
 *   Implement user input for creating rectangles dynamically.
 *   Provide examples for other locales or improve cross-platform locale handling.
 *   Enhance the ASCII art or add more complex shape interactions.
