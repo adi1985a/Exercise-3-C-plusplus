@@ -44,7 +44,7 @@ The **Rectangle Class Demo**, developed by Adrian Lesniak, is a C++ console appl
 
 The program produces direct console output based on the `show()` method.
 <p align="center">
-  <img src="screenshots\Image9.jpg" width="300"/>
+  <img src="screenshots\Image9.jpg" width="700"/>
 </p>
 
 **Example Console Output (assuming Polish locale is active and terminal supports it):**
