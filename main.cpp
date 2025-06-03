@@ -1,73 +1,72 @@
-#include <iostream>                     // Dołączenie biblioteki iostream, która umożliwia operacje wejścia/wyjścia.
-#include <string>                       // Dołączenie biblioteki string, która umożliwia manipulację łańcuchami znaków.
-#include <locale>                       // Dołączenie biblioteki locale
+#include <iostream>                     // Includes the iostream library for input/output operations.
+#include <string>                       // Includes the string library for string manipulation.
+#include <locale>                       // Includes the locale library.
 
+using namespace std;                    // Uses the standard namespace.
 
-using namespace std;                    // Użycie przestrzeni nazw std.
-
-class Rectangle                         // Zdefiniowanie klasy Rectangle.( kwadrat )
+class Rectangle                         // Defines the Rectangle class.
 {
 private:
-    int sideA;                          // Długość boku A
-    int sideB;                          // Długość boku B
-    string color;                       // Kolor prostokąta
-    float area;                         // Pole powierzchni prostokąta
+    int sideA;                          // Length of side A.
+    int sideB;                          // Length of side B.
+    string color;                       // Color of the rectangle.
+    float area;                         // Area of the rectangle.
 
 public:
-    Rectangle()                         // Konstruktor domyślny
+    Rectangle()                         // Default constructor.
     {
-        sideA = 0;                      // Ustawienie wartości 0 dla pola sideA
-        sideB = 0;                      // Ustawienie wartości 0 dla pola sideB
-        color = "czarny";               // Ustawienie koloru "black" dla pola color
-        area = 0.0f;                    // Ustawienie wartości 0.0 dla pola area
+        sideA = 0;                      // Sets sideA to 0.
+        sideB = 0;                      // Sets sideB to 0.
+        color = "black";               // Sets the color to "black".
+        area = 0.0f;                    // Sets area to 0.0.
     }
 
-    Rectangle(int a, int b, string c)   // Przeciążony konstruktor
+    Rectangle(int a, int b, string c)   // Overloaded constructor.
     {
-        sideA = a;                      // Przypisanie wartości podanej jako a do pola sideA
-        sideB = b;                      // Przypisanie wartości podanej jako b do pola sideB
-        color = c;                      // Przypisanie wartości podanej jako c do pola color
-        area = calculateArea();         // Obliczenie pola powierzchni przy użyciu metody calculateArea()
+        sideA = a;                      // Assigns a to sideA.
+        sideB = b;                      // Assigns b to sideB.
+        color = c;                      // Assigns c to color.
+        area = calculateArea();         // Calculates area using calculateArea() method.
     }
 
-    Rectangle(int a, int b)             // Przeciążony konstruktor inicjalizujący prostokąt o podanych długościach boków
+    Rectangle(int a, int b)             // Overloaded constructor initializing a rectangle with given sides.
     {
-        sideA = a;                      // Przypisanie wartości podanej jako a do pola sideA
-        sideB = b;                      // Przypisanie wartości podanej jako b do pola sideB
-        color = "żółty";                // Przypisanie koloru "yellow" do pola color
-        area = calculateArea();         // Obliczenie pola powierzchni przy użyciu metody calculateArea()
+        sideA = a;                      // Assigns a to sideA.
+        sideB = b;                      // Assigns b to sideB.
+        color = "yellow";              // Sets the color to "yellow".
+        area = calculateArea();         // Calculates area using calculateArea() method.
     }
 
-    void show()                         // Metoda show - wyświetla informacje o prostokącie.
+    void show()                         // show method - displays rectangle information.
     {
-        cout << "Długości boków: " << sideA << ", " << sideB << endl; // Wyświetla długości boków prostokąta.
-        cout << "Kolor: " << color << endl;                           // Wyświetla kolor prostokąta.
-        cout << "Pole powierzchni: " << area << endl;                 // Wyświetla pole powierzchni prostokąta.
+        cout << "Side lengths: " << sideA << ", " << sideB << endl; // Displays side lengths.
+        cout << "Color: " << color << endl;                          // Displays color.
+        cout << "Area: " << area << endl;                            // Displays area.
     }
 
-private:                                            	// Sekcja prywatna - zawiera prywatne składowe klasy Rectangle.
-    float calculateArea()                           	// Metoda calculateArea - oblicza pole powierzchni prostokąta.
+private:                                            	// Private section - contains private members of the Rectangle class.
+    float calculateArea()                           	// calculateArea method - calculates the area of the rectangle.
     {
-        return static_cast<float>(sideA * sideB);   	// Zwraca wynik mnożenia długości boków prostokąta, rzutowany na typ float.
+        return static_cast<float>(sideA * sideB);   	// Returns the result of multiplying sides, cast to float.
     }
 };
 
 int main()
 {
-    setlocale(LC_ALL, "");              			// Ustawienie lokalizacji na bieżącą lokalizację systemową
+    setlocale(LC_ALL, "");              			// Sets the locale to the system's default.
 
-    Rectangle rectangles[4];            			// Tablica prostokątów
+    Rectangle rectangles[4];            			// Array of rectangles.
 
-    rectangles[0] = Rectangle();                      // Inicjalizacja pierwszego prostokąta konstruktorem domyślnym
-    rectangles[1] = Rectangle(5, 7, "niebieski");     // Inicjalizacja drugiego prostokąta przeciążonym konstruktorem
-    rectangles[2] = Rectangle(3, 10, "zielony");      // Inicjalizacja trzeciego prostokąta przeciążonym konstruktorem
-    rectangles[3] = Rectangle(8, 8);                  // Inicjalizacja czwartego prostokąta przeciążonym konstruktorem
+    rectangles[0] = Rectangle();                      // Initializes the first rectangle with the default constructor.
+    rectangles[1] = Rectangle(5, 7, "blue");           // Initializes the second rectangle with overloaded constructor.
+    rectangles[2] = Rectangle(3, 10, "green");         // Initializes the third rectangle with overloaded constructor.
+    rectangles[3] = Rectangle(8, 8);                   // Initializes the fourth rectangle with overloaded constructor.
 
-    for (int i = 0; i < 4; i++)         // Uruchomienie pętli for
+    for (int i = 0; i < 4; i++)         // Starts a for loop.
     {
-        rectangles[i].show();           // Wywołanie metody show() dla każdego prostokąta
+        rectangles[i].show();           // Calls show() method for each rectangle.
         cout << endl;
     }
 
-    return 0;                           // Zwrócenie wartości 0 - oznacza sukcesowe zakończenie programu.
+    return 0;                           // Returns 0 - indicates successful program termination.
 }
